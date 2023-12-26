@@ -150,5 +150,15 @@ fatal: Exiting because of unfinished merge.
 - 取消動作 esc
 
 ## [更改最後一次 commit 內容](https://gitbook.tw/chapters/using-git/amend-commit1)
-- git commit --amend -m "..."
-- git push -u origin main -f
+- `git commit --amend -m "..."`
+- `git push -u origin main -f`
+
+
+## [恢復到指定版本](https://zhuanlan.zhihu.com/p/35078876?utm_id=0)
+#先去搜尋該專案要指定的版本
+- `git reset --hard <版本>`
+- `git push origin HEAD --force`
+- 查看 Git 倉庫即可看到已完成恢復版本。
+
+
+## [Git 個人頁面新增花樣](https://blog.csdn.net/weixin_41804512/article/details/134440056)
