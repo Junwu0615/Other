@@ -5,20 +5,20 @@
 - 解決方式具體如下:
   - Settings -> Startup -> Tasks -> 新增一個項目並命名(git)
     - Task Paramters
-      - /icon "D:\xxx\Cmder\vendor\git-for-windows\usr\share\git\git.ico"
+      - `/icon "C:\xxx\cmder\vendor\git-for-windows\usr\share\git\git.ico"`
     - 底下白色大框
-      - D:\xxx\Cmder\vendor\git-for-windows\bin\sh.exe
+      - `C:\xxx\cmder\vendor\git-for-windows\bin\sh.exe`
 
 ## [變更 Cmder 起始路徑](https://albert-kuo.blogspot.com/2019/01/tools-cmder-cmder.html)
 - Settings -> Startup -> Tasks -> {cmd:Cmder}
-  - 於白色大框內容中改寫 cmd /k ""%ConEmuDir%\..\init.bat" " -new_console:d:`C:\Users\xxx\xxx`
+  - 於白色大框內容中改寫 `cmd /k ""%ConEmuDir%\..\init.bat" " -new_console:d:C:\Users\xxx\xxx`
 - Save settings
 
 ## [如何在 Cmder 登入 Git](https://ithelp.ithome.com.tw/articles/10308140?sc=rss.iron)
 - 打開 Cmder 輸入
   - ssh-keygen -t ed25519 -C `your_git_email@example.com`
   - 去使用者找 .ssh目錄，並將用記事本將.pub打開 (將內容複製下來)
-    - #C:\Users\xxx\.ssh
+    - `C:\Users\xxx\.ssh`
 - 打開 GitHub
   - 點擊右上角的小頭像，並點擊倒數第二個 `settings`。
   - 點擊左邊選擇列的 SSH and GPG keys。
