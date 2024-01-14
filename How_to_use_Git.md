@@ -143,6 +143,11 @@ fatal: Exiting because of unfinished merge.
        - 若是 `git rebase --continue` 指令修改完後無法通過，則再次輸入，因為還有需要待改內容。
   - 若都無噴錯，即直接 push 更新上去 (這邊要強制推出) `git push -u origin master -f`
 
+## [修改歷史 commit 內容](https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+- 與合併歷史做法一樣，叫出 `git rebase -i`
+- 但 `squash` 改成 `reword`
+- 編輯完後一樣使用強制提交才確實完成更改。
+
 ## [Cmd 修改檔案之常見語法](https://blog.csdn.net/zmzhangcsdn/article/details/107298516)
 - 插入 a / s
 - 不儲存退出 / 強制不儲存退出 : :q / :q!
