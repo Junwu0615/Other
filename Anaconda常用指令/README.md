@@ -1,63 +1,106 @@
 # Anaconda 常用指令
 
-### 創建環境
+### I.　創建名為 env 的環境 ; Python版本指定為 3.12.0
+```py
+conda create --name env python=3.12.0
 ```
-conda create --name <env name> <python=3.11.5>
+</br>
+
+### II.　命令列切換環境至 env 環境
+```py
+conda activate env
 ```
-### 切換環境
-```
-conda activate + <env name>
-```
-### 環境清單
-```
+</br>
+
+### III.　查看當前所有虛擬環境清單
+```py
 conda env list
 ```
-### 刪除環境
+</br>
+
+### IV.　刪除子虛擬環境 ; 譬如刪除 env
+```py
+conda env remove --name env
 ```
-conda env remove --name <env name>
+</br>
+
+### V.　安裝常用的應用
+- Jupyter Notebook
+  ```py
+  pip install notebook
+  ```
+  - 啟動 `jupyter notebook`
+</br>
+
+- Spyder　
+  ```py
+  pip install spyder
+  ```
+  - 啟動 `spyder`
+</br>
+
+### VI.　安裝套件應用
+ex : 安裝 numpy / requests
+```py
+pip install numpy==1.26.2
+pip install requests==2.31.0
+```
+</br>
+
+### VII.　套件升級
+ex : 升級 pip / numpy / requests
+```py
+pip install --upgrade pip
+pip install --upgrade numpy
+pip install --upgrade requests
 ```
 
-### 安裝套件並指定版本
-TensorFlow-GPU　`pip install tensorflow-gpu==1.14`</br>
-Keras　`pip install keras==2.2.4`</br></br>
-
-### 安裝應用
-先進行pip版本升級 **(建議)**　`pip install — upgrade pip`</br>
-安裝 jupyter / Spyder
-```
-pip install notebook==7.0.6
-pip install spyder==5.4.3
+### VIII 移除套件
+ex : 移除 numpy / requests
+```py
+pip uninstall numpy
+pip uninstall requests
 ```
 
-### 依據清單(xxx.txt)來安裝套件</br>
-將需要的套件都寫進xxx.txt裡面，不須任何標點符號</br>
+### IX.　依據清單(requirements.txt)來安裝套件</br>
+可以將需要的套件都寫進 [requirements.txt](./requirements.txt) 裡面，不須任何標點符號，也可以不設定版本</br>
 - ex:
-  - tensorflow-gpu==1.14
-  - keras==2.2.4
-```
-pip install -r xxx.txt
-```
-此 txt 檔 [kit_list.txt](./kit_list.txt) 存放了 tensorflow-gpu / keras 之該指定套件。 </br></br>
+- notebook
+- spyder
+- numpy==1.26.2
+- Pillow==10.1.0
+- requests==2.31.0
+- beautifulsoup4==4.12.2
+- argumentparser==1.2.1
 
-### 備份環境
+接著輸入下方語句即可導入安裝 requirements.txt 內所有設定之套件
+```py
+pip install -r requirements.txt
 ```
-conda env export > <path ex: C:\Users\xxx\environment.yaml> 
-```
+</br>
 
-### 匯入environment.yaml
-記住 ! 本專案中該檔案已經命名環境名稱，若需要更改，請進去 `environment.yaml` 修正。
-若重複的環境名稱將會噴錯。
+### X.　備份環境
+```py
+conda env export > C:\Users\xxx\environment.yaml
 ```
+</br>
+
+### XI.　匯入 [environment.yaml](./environment.yaml)
+```py
 conda env create -f C:\Users\xxx\environment.yaml
 ```
-此環境清單 [environment.yaml](./environment.yaml) 只安裝 jupyter / Spyder。 </br></br>
-
-### 解决【AssertionError Torch not compiled with CUDA enabled】問題
-```
-conda remove --name pytorch -all
-conda activate <env name>
-conda remove --name pytorch --all
-conda deactivate
-pip uninstall torch
-conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
-```
+- 環境名稱 : `trysomething`
+- 只安裝常用應用 : `jupyter notebook` `spyder` `powershell`
+- 若要改環境名稱，須改
+  ```py
+  # trysomething -> name you want
+  name: trysomething
+  ...
+  prefix: C:\Users\xxx\anaconda3\envs\trysomething
+  ```
+- 使用者名稱也須變更
+  ```py
+  # xxx -> your user name
+  prefix: C:\Users\xxx\anaconda3\envs\trysomething
+  ```
+</br>
