@@ -1,4 +1,4 @@
-# 遇到的經典問題 : 如何使用 Git
+# 如何使用 Git
 
 ## [Git 無法在 Cmder 執行](https://blog.csdn.net/hfuter2016212862/article/details/109622540)
 - Cmder 本身就有內建好的 Git，只需去設定接好。
@@ -29,39 +29,46 @@
   - 輸入 yes 之後你會看到 Hi... 就代表創建成功 !
 
 </br></br>
+
 # 基本指令
 ## 創建版本庫 (每個專案都常要創建一次)
 ```
 git init
 ```
+
 ## Clone 克隆
 ```
 git clone git@github.com:.../...git
 ```
+
 ## Status 狀態
 ```
 git status
 ```
+
 ## Push 推
 #將本地內容推至 遠端資料庫指定的大/小分支</br>
 #push <資料庫大分支> <資料庫分支> (新的分支會自行創建)</br>
 ```
 git push <origin> <master>   
 ```
+
 ## Pull 拉
 #將遠端資料庫 指定的大/小分支內容拉下來</br>
 #pull <資料庫大分支> <資料庫分支> (新的分支會自行創建)</br>
 ```
 git pull <origin> <master>
 ```
+
 ## Log 查看操作歷史紀錄
 ```
 git log
 ```
+
 ## Add 新增檔案
 #只是先新增到本地的版本庫 但尚未更新至遠端庫</br>
 可以指定檔案(要寫副檔名) `git add xxx.xxx` </br>
-將路徑中所有檔案提交出去 `git add *`
+將路徑中所有檔案提交出去 `git add *` or `git add .`
 
 ## Commit 提交
 Commit 出去後還尚未完成，Push 才是結束 </br>
@@ -83,27 +90,23 @@ Commit 出去後還尚未完成，Push 才是結束 </br>
 - 切換至分支 test `git checkout test`
 
 </br></br>
-# 情境模擬
-### 第一次提交檔案至 Git
+
+# 其他情境
+
+## 第一次提交檔案至 Git
 - 創建庫 `git init`
-- 當前git狀態 `git status`
-- 將路徑中所有檔案提交出去/可以指定檔案(要寫副檔名) `git add *` `git add xxx.xxx` 
+- 當前 git 狀態 `git status`
+- 將路徑中所有檔案提交出去 `git add *` / 可以指定檔案(要寫副檔名) `git add xxx.xxx` 
 - 這次事件的註解內容  `git commit -m "..."` 
 - 查看操作歷史紀錄 `git log`
-- 接下來我們要去 github創建遠端版本庫
+- 接下來我們要去 GitHub 創建遠端版本庫
 - 創建完畢可以看到底下有給了指令 選擇這行
 - `git remote add <origin> git@<github.com:.../...git>`
   - #選擇怎麼呼叫這個大分支 `origin`
   - #你的專案網址 `git@github.com:.../...git`
 - `git push <origin> <master>`
   - #push <資料庫大分支> <資料庫分支> (新的分支會自行創建)
-
-### 第二次以上提交至 Git
-- `git status`
-- `git add *`
-- `git commit -m "..."`
-- `git log`
-- `git push <origin> <master>`
+#或是創建專案後直接 clone 下來，再進行後續編輯。
 
 ## fatal: refusing to merge unrelated histories.
 #**Git 版控判斷方式，是看檔案更新前後時間點。**
@@ -116,7 +119,7 @@ Commit 出去後還尚未完成，Push 才是結束 </br>
 - 這樣本地就跟上 Git 的進度，因此可以直接 `git push origin main` 出去，就全部都同步啦 !
 
 ## [hint: Updates were rejected because the tip of your current branch is behind.](https://blog.csdn.net/weixin_43770545/article/details/103822377)
-- 這可以暴力強制提交 `git push -u <origin> <main> -f`
+- 暴力強制提交 `git push -u <origin> <main> -f` or `git push -f`
 
 ## [Git Pull or Merge 的問題](https://blog.csdn.net/qq_20801369/article/details/73290373)
 錯誤內容如下:
@@ -146,18 +149,11 @@ fatal: Exiting because of unfinished merge.
 ## [修改歷史 commit 內容](https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
 - 與合併歷史做法一樣，叫出 `git rebase -i`
 - 但 `squash` 改成 `reword`
-- 編輯完後一樣使用強制提交才確實完成更改。
-
-## [Cmd 修改檔案之常見語法](https://blog.csdn.net/zmzhangcsdn/article/details/107298516)
-- 插入 a / s
-- 不儲存退出 / 強制不儲存退出 : :q / :q!
-- 儲存退出 / 強制儲存退出 : :wq / :wq!
-- 取消動作 esc
+- 編輯完後一樣使用 `git push -f` 強制提交才確實完成更改。
 
 ## [更改最後一次 commit 內容](https://gitbook.tw/chapters/using-git/amend-commit1)
 - `git commit --amend -m "..."`
-- `git push -u origin main -f`
-
+- `git push -u origin main -f` or `git push -f`
 
 ## [恢復到指定版本](https://zhuanlan.zhihu.com/p/35078876?utm_id=0)
 #先去搜尋該專案要指定的版本
@@ -165,5 +161,18 @@ fatal: Exiting because of unfinished merge.
 - `git push origin HEAD --force`
 - 查看 Git 倉庫即可看到已完成恢復版本。
 
+## 恢復到上個版本 (注意會放棄當前變動所有項目，謹慎使用)
+- `git reset --hard`
+- `git push -f` 提交出去與遠端庫一致
 
-## [Git 個人頁面新增花樣](https://blog.csdn.net/weixin_41804512/article/details/134440056)
+## 收藏 Git 個人化頁清單
+- [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+- [awesome-github-profile-readme-chinese](https://github.com/eryajf/awesome-github-profile-readme-chinese)
+- [awesome-pinned-gists?tab=readme-ov-file](https://github.com/matchai/awesome-pinned-gists?tab=readme-ov-file)
+- [creative-profile-readme](https://github.com/coderjojo/creative-profile-readme)
+- [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg)
+- [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+- [generate-snake-game-from-github-contribution-grid](https://github.com/marketplace/actions/generate-snake-game-from-github-contribution-grid)
+- [L1cardo](https://github.com/L1cardo)
+
+- [donavon](https://github.com/donavon)
