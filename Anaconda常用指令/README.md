@@ -1,5 +1,17 @@
 # Anaconda 常用指令
 
+## 各版本的 Python 環境 yaml
+- 下列環境檔以指定版本 Python 建立後，已安裝常用應用 (Spyder / Jupyter / Powershell Prompt)</br>
+- yaml 裡頭的使用者變數自行更改 `user` : `xxx` -> `?` 。</br>
+- 主要是 Anaconda 安裝應用有時候都無法順利載成功，以至於需要用 pip 安裝，這又導致捷徑設定很麻煩。</br>
+  - Python 3.12.0
+  - [Python 3.11.5](yaml/environment_py311.yaml)
+  - [Python 3.10.13](yaml/environment_py310.yaml)
+  - [Python 3.9.18](yaml/environment_py39.yaml)
+  - [Python 3.8.18](yaml/environment_py38.yaml)
+  - Python 3.7.11
+  - [Python 3.6.13](yaml/environment_py36.yaml)
+
 ### I.　創建名為 env 的環境 ; Python版本指定為 3.12.0
 ```py
 conda create --name env python=3.12.0

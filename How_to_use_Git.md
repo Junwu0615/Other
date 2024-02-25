@@ -174,5 +174,13 @@ fatal: Exiting because of unfinished merge.
 - [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
 - [generate-snake-game-from-github-contribution-grid](https://github.com/marketplace/actions/generate-snake-game-from-github-contribution-grid)
 - [L1cardo](https://github.com/L1cardo)
-
 - [donavon](https://github.com/donavon)
+
+## 忽略清單
+- 只需要在該專案目錄新增一個檔案 `.gitignore`
+- 建立後在裡面寫入 **想要避免加入進 Git 遠端庫** 的內容即可
+- 譬如 :
+  ```
+  test.json # 名為 test 的 json 檔想避免加入
+  ABtest # 名為 ABtest 的檔案夾想避免加入
+  ```
