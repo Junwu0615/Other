@@ -5,7 +5,7 @@
 
 ### 1.　[Anaconda 常用指令](/Anaconda常用指令/README.md)
 ### 2.　[檔案總管如何統一欄位格式](/檔案總管如何統一欄位格式/README.md)
-### 3.　[How to use Git](How_to_use_Git.md)
+### 3.　[How to Use Git](Git.md)
 ### 4.　['pip' is not recognized as an internal or ... batch file]('pip'_is_not_recognized.md)
 ### 4.　[CMD 常用指令](CMD.md)
 ### 5.　[Python 開發時會遇到的問題](Python.md)
