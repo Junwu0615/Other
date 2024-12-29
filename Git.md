@@ -161,6 +161,13 @@ fatal: Exiting because of unfinished merge.
 - `git push origin HEAD --force`
 - 查看 Git 倉庫即可看到已完成恢復版本。
 
+## [解決 .gitignore 失效的問題](https://chuchu.tw/gitignore-not-working#google_vignette)
+- 有時候會發現 .gitignore 檔案裡面的內容並沒有生效，這時可以試以下方法
+  - `git rm -r --cached .` # 清除本地 git 快取
+  - `git add .` # 重新加入所有檔案
+  - `git commit -m "fixed untracked files"` # 提交
+  - `git push` # 推送
+
 ## 恢復到上個版本 (注意會放棄當前變動所有項目，謹慎使用)
 - `git reset --hard`
 - `git push -f` 提交出去與遠端庫一致
