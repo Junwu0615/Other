@@ -161,12 +161,36 @@ fatal: Exiting because of unfinished merge.
 - `git push origin HEAD --force`
 - 查看 Git 倉庫即可看到已完成恢復版本。
 
-## [解決 .gitignore 失效的問題](https://chuchu.tw/gitignore-not-working#google_vignette)
+## [清除 git 快取 / 解決 .gitignore 失效的問題](https://chuchu.tw/gitignore-not-working#google_vignette)
 - 有時候會發現 .gitignore 檔案裡面的內容並沒有生效，這時可以試以下方法
   - `git rm -r --cached .` # 清除本地 git 快取
   - `git add .` # 重新加入所有檔案
   - `git commit -m "fixed untracked files"` # 提交
   - `git push` # 推送
+
+## [怎麼把檔案真正的從 Git 裡移掉？](https://gitbook.tw/chapters/faq/remove-files-from-git)
+```
+#### 步驟很多 建議看連結 ####
+# 假設敏感檔案為 depend/streamlit-visit-count-42930db21b8c.json
+
+# 所有 Commit 的指定敏感檔案刪掉
+git filter-branch -f --tree-filter "rm -f depend/streamlit-visit-count-42930db21b8c.json"
+
+# 資源回收需確實處理
+rm .git/refs/original/refs/heads/main
+
+# 清除 Reflog
+git reflog expire --all --expire=now
+
+# git fsck 確認是否有許多 Unreachable 的物件
+git fsck --unreachable
+
+# 啟動 Git 的資源回收機制，請垃圾車來立刻把它們載走
+git gc --prune=now
+
+# 再次 git fsck 確認
+git fsck
+```
 
 ## 恢復到上個版本 (注意會放棄當前變動所有項目，謹慎使用)
 - `git reset --hard`
