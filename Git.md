@@ -15,6 +15,9 @@
 - Save settings
 
 ## [如何在 Cmder 登入 Git](https://ithelp.ithome.com.tw/articles/10308140?sc=rss.iron)
+
+```
+# 法1 SSH-KEY
 - 打開 Cmder 輸入
   - ssh-keygen -t ed25519 -C `your_git_email@example.com`
   - 去使用者找 .ssh目錄，並將用記事本將.pub打開 (將內容複製下來)
@@ -27,6 +30,12 @@
   - 在表單上會看到你新增的SSH key圖示。
 - 開啟 Cmder 並輸入 `ssh -T git@github.com`
   - 輸入 yes 之後你會看到 Hi... 就代表創建成功 !
+```
+
+```
+# 法2 網頁用一次性碼註冊裝置
+gh auth login
+```
 
 </br></br>
 
