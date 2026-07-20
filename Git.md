@@ -34,6 +34,7 @@
 
 ```
 # 法2 網頁用一次性碼註冊裝置
+# https://github.com/login/device/select_account
 gh auth login
 ```
 
