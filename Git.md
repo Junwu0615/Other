@@ -35,7 +35,16 @@
 ```
 # 法2 網頁用一次性碼註冊裝置
 # https://github.com/login/device/select_account
+
+# 註冊
 gh auth login
+
+# 確認是否註冊成功
+gh auth status
+
+# 若要移除註冊 透過 ...
+打開瀏覽器登入 GitHub -> 點擊右上角大頭貼 -> 選擇 Settings
+-> 點擊左側選單 Sessions -> 即可檢視過往已註冊的裝置
 ```
 
 </br></br>
