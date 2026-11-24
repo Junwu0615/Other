@@ -39,3 +39,35 @@ source ~/.bashrc
 
 ![PNG](./gcm.png)
 
+---
+
+### *停止服務*
+```
+# 查看硬碟中儲存模型
+ollama list
+
+# 查看目前有哪些模型被載入到記憶體中
+ollama ps
+
+# 正在運作模型 將其卸載 否則其會持續占用資源
+ollama stop qwen2.5-coder:3b
+
+# 停止 WSL2 / Linux 服務啟動
+sudo systemctl stop ollama
+
+# 刪除硬碟裡的模型
+ollama rm qwen2.5-coder:3b
+```
+
+---
+
+### *測試服務*
+```
+# 視窗 1 輸入
+ollama run qwen2.5-coder:3b "用一句話解釋 git diff"
+
+# 視窗 2 輸入
+ollama ps
+```
+
+
