@@ -1,0 +1,25 @@
+gcm() {
+  local diff=$(git diff --staged)
+  if [ -z "$diff" ]; then
+    echo "⚠️  沒有 staged 的變更，請先執行 git add"
+    return 1
+  fi
+
+  # 避免超大 diff（如 lock 檔）塞爆上下文，限制前 400 行
+  local trimmed_diff=$(echo "$diff" | head -n 400)
+
+  echo "🤖 正在分析異動並生成 Commit Message..."
+  local msg=$(printf "請根據以下 git diff 生成一行精簡的 Conventional Commit message（格式如 feat: ...、fix: ...、refactor: ...），只輸出該行文字，不要 markdown 符號或多餘解釋：\n\n%s" "$trimmed_diff" | ollama run qwen2.5-coder:3b)
+
+  # 去除前後可能多餘的空白或引號
+  msg=$(echo "$msg" | sed 's/^[[:space:]"`]*//;s/[[:space:]"`]*$//')
+
+  echo -e "\n建議訊息：\033[1;32m$msg\033[0m"
+  read -p "確認提交？[y]直接commit / [e]微調後commit / [n]取消: " choice
+
+  case "$choice" in
+    y|Y|"" ) git commit -m "$msg" ;;
+    e|E ) git commit -e -m "$msg" ;;
+    * ) echo "❌ 已取消" ;;
+  esac
+}
