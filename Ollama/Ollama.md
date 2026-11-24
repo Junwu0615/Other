@@ -37,3 +37,5 @@ source ~/.bashrc
 # 立刻生效
 ```
 
+![PNG](./gcm.png)
+
