@@ -9,3 +9,4 @@
 ### 4.　['pip' is not recognized as an internal or ... batch file]('pip'_is_not_recognized.md)
 ### 4.　[CMD 常用指令](CMD.md)
 ### 5.　[Python 開發時會遇到的問題](Python.md)
+### 6.　[本地 IDE 透過 Ollama 自動生成推送訊息](Ollama/Ollama.md)
